@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tic Tac Toe</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tic_tac_toe">TicTacToe</string>
+    <string name="marker_X">X</string>
+    <string name="marker_O">O</string>
+    <string name="new_game">Vs. Computer</string>
+    <string name="human"> Vs. Human</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="draw">Draw! Game Over!</string>
+    <string name="gameOver">Game over! \u0020 </string>
+    <string name="title_activity_vs_computer">HumanVsComputer</string>
+    <string name="title_activity_vs_human">HumanVsHuman</string>
+    <string name="scores">Game Scores</string>
+    <string name="ties">Ties:  </string>
+    <string name="computer">Computer:  </string>
+    <string name="humanPlayer">Human:  </string>
+</resources>

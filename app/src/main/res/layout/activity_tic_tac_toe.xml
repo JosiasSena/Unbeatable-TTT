@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="top"
+    android:background="@android:color/white">
+
+    <!-- TicTacToe Title-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="T"
+            android:textSize="40sp"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ic"
+            android:textSize="40sp"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="T"
+            android:textSize="40sp"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ac"
+            android:textSize="40sp"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="T"
+            android:textSize="40sp"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="oe"
+            android:textSize="40sp"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <!-- Game Board -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/tableLayout"
+        android:minHeight="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/CellStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_column="1"
+                android:width="100dp"
+                android:height="100dp"
+                android:id="@+id/c0"
+                android:tag="c0"
+                android:onClick="runGame" />
+
+            <Button
+                style="@style/CellStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/c1"
+                android:tag="c1"
+                android:layout_column="2"
+                android:width="100dp"
+                android:height="100dp"
+                android:onClick="runGame" />
+
+            <Button
+                style="@style/CellStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/c2"
+                android:tag="c2"
+                android:layout_column="3"
+                android:width="100dp"
+                android:height="100dp"
+                android:onClick="runGame" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/CellStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/c3"
+                android:tag="c3"
+                android:layout_column="1"
+                android:width="100dp"
+                android:height="100dp"
+                android:onClick="runGame" />
+
+            <Button
+                style="@style/CellStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/c4"
+                android:tag="c4"
+                android:layout_column="2"
+                android:width="100dp"
+                android:height="100dp"
+                android:onClick="runGame" />
+
+            <Button
+                style="@style/CellStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/c5"
+                android:tag="c5"
+                android:layout_column="3"
+                android:width="100dp"
+                android:height="100dp"
+                android:onClick="runGame" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/CellStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/c6"
+                android:tag="c6"
+                android:layout_column="1"
+                android:width="100dp"
+                android:height="100dp"
+                android:onClick="runGame" />
+
+            <Button
+                style="@style/CellStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/c7"
+                android:tag="c7"
+                android:layout_column="2"
+                android:width="100dp"
+                android:height="100dp"
+                android:onClick="runGame" />
+
+            <Button
+                style="@style/CellStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/c8"
+                android:tag="c8"
+                android:layout_column="3"
+                android:width="100dp"
+                android:height="100dp"
+                android:onClick="runGame" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Game Score Information -->
+
+    <TextView
+        android:id="@+id/information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:text="@string/scores"
+        android:textSize="25dp"
+        android:textColor="@android:color/black" />
+
+    <LinearLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/human"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/humanPlayer"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/humanCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:id="@+id/ties"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ties"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/tiesCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:id="@+id/computer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/computer"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/conputerCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

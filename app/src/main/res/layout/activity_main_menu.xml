@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:id="@+id/imageView" />
+
+    <Button
+        android:id="@+id/one_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Human Vs. Computer"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/menu_button_clicks"/>
+
+    <Button
+        android:id="@+id/two_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Human Vs. Human"
+        android:layout_below="@+id/one_player"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/menu_button_clicks"
+        android:layout_marginTop="2dp"/>
+
+    <Button
+        android:id="@+id/exit_game"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exit Game"
+        android:layout_below="@+id/two_player"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/exit_game_button"
+        android:layout_marginTop="2dp"/>
+
+</RelativeLayout>
