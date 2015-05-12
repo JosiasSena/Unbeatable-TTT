@@ -87,7 +87,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:layout_column="1"
                 android:width="100dp"
                 android:height="100dp"
                 android:id="@+id/c0"
@@ -101,7 +100,6 @@
                 android:text=""
                 android:id="@+id/c1"
                 android:tag="c1"
-                android:layout_column="2"
                 android:width="100dp"
                 android:height="100dp"
                 android:onClick="runGame" />
@@ -113,7 +111,6 @@
                 android:text=""
                 android:id="@+id/c2"
                 android:tag="c2"
-                android:layout_column="3"
                 android:width="100dp"
                 android:height="100dp"
                 android:onClick="runGame" />
@@ -132,7 +129,6 @@
                 android:text=""
                 android:id="@+id/c3"
                 android:tag="c3"
-                android:layout_column="1"
                 android:width="100dp"
                 android:height="100dp"
                 android:onClick="runGame" />
@@ -144,7 +140,6 @@
                 android:text=""
                 android:id="@+id/c4"
                 android:tag="c4"
-                android:layout_column="2"
                 android:width="100dp"
                 android:height="100dp"
                 android:onClick="runGame" />
@@ -156,7 +151,6 @@
                 android:text=""
                 android:id="@+id/c5"
                 android:tag="c5"
-                android:layout_column="3"
                 android:width="100dp"
                 android:height="100dp"
                 android:onClick="runGame" />
@@ -175,7 +169,6 @@
                 android:text=""
                 android:id="@+id/c6"
                 android:tag="c6"
-                android:layout_column="1"
                 android:width="100dp"
                 android:height="100dp"
                 android:onClick="runGame" />
@@ -187,7 +180,6 @@
                 android:text=""
                 android:id="@+id/c7"
                 android:tag="c7"
-                android:layout_column="2"
                 android:width="100dp"
                 android:height="100dp"
                 android:onClick="runGame" />
@@ -199,7 +191,6 @@
                 android:text=""
                 android:id="@+id/c8"
                 android:tag="c8"
-                android:layout_column="3"
                 android:width="100dp"
                 android:height="100dp"
                 android:onClick="runGame" />
@@ -215,7 +206,7 @@
         android:layout_marginTop="5dp"
         android:gravity="center_horizontal"
         android:text="@string/scores"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textColor="@android:color/black" />
 
     <LinearLayout
@@ -236,7 +227,8 @@
             android:id="@+id/humanCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
 
         <TextView
             android:id="@+id/ties"
@@ -249,7 +241,10 @@
             android:id="@+id/tiesCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp" />
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
 
         <TextView
             android:id="@+id/computer"
@@ -259,7 +254,7 @@
             android:textColor="@android:color/black" />
 
         <TextView
-            android:id="@+id/conputerCount"
+            android:id="@+id/computerCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>

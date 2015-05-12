@@ -1,4 +1,4 @@
-package handy.tictactoe;
+package handy.tictactoe.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -16,20 +16,36 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import handy.tictactoe.objects.Board;
+import handy.tictactoe.utils.GameBoard;
+import handy.tictactoe.utils.GameRules;
+import handy.tictactoe.R;
+
 public class HumanVsHuman extends ActionBarActivity {
+    @InjectView(R.id.humanCount)
+    TextView mPlayerOneCount;
+
+    @InjectView(R.id.tiesCount)
+    TextView mTieCount;
+
+    @InjectView(R.id.computerCount)
+    TextView mPlayerTwoCount;
+
+    @InjectView(R.id.human)
+    TextView mPlayerOneText;
+
+    @InjectView(R.id.computer)
+    TextView mPlayerTwoText;
+
+    private static final HashMap<String, Integer> cellToMoveMap;
     private AlertDialog.Builder mDialog;
     private Board board;
     private GameRules gameRules;
     private ArrayList<View> touchables;
 
     private int turnCount = 0;
-
-    // Various textviews to display
-    private TextView mPlayerOneCount;
-    private TextView mTieCount;
-    private TextView mPlayerTwoCount;
-    private TextView mPlayerOneText;
-    private TextView mPlayerTwoText;
 
     // Counters for the wins and ties
     private int mPlayerOneCounter = 0;
@@ -40,6 +56,7 @@ public class HumanVsHuman extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tic_tac_toe);
+        ButterKnife.inject(this);
         setUpActionBar();
 
         board = new GameBoard();
@@ -58,13 +75,6 @@ public class HumanVsHuman extends ActionBarActivity {
     }
 
     private void init(){
-        // setup the textviews
-        mPlayerOneCount = (TextView) findViewById(R.id.humanCount);
-        mTieCount = (TextView) findViewById(R.id.tiesCount);
-        mPlayerTwoCount = (TextView) findViewById(R.id.conputerCount);
-        mPlayerOneText = (TextView) findViewById(R.id.human);
-        mPlayerTwoText = (TextView) findViewById(R.id.computer);
-
         // set the initial counter display values
         mPlayerOneCount.setText(Integer.toString(mPlayerOneCounter));
         mTieCount.setText(Integer.toString(mTieCounter));
@@ -77,10 +87,12 @@ public class HumanVsHuman extends ActionBarActivity {
     }
 
     private void setUpActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("Human vs. Human");
+        if (getSupportActionBar() != null){
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("Human vs. Human");
+        }
     }
 
     @Override
@@ -95,7 +107,6 @@ public class HumanVsHuman extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private static final HashMap<String, Integer> cellToMoveMap;
     static {
         cellToMoveMap = new HashMap<>();
         for (int i = 0; i < 16; i++) {
@@ -117,7 +128,7 @@ public class HumanVsHuman extends ActionBarActivity {
         turnCount ++;
     }
 
-    char getCurrentPlayer() {
+    private char getCurrentPlayer() {
         if (turnCount % 2 == 0) {
             return 'X';
         } else {
@@ -125,7 +136,7 @@ public class HumanVsHuman extends ActionBarActivity {
         }
     }
 
-    void setButtonStatus(boolean state) {
+    private void setButtonStatus(boolean state) {
         for (View touchable : touchables) {
             if (touchable instanceof Button) {
                 touchable.setEnabled(state);
@@ -147,11 +158,11 @@ public class HumanVsHuman extends ActionBarActivity {
         return convertCellToInt((String) view.getTag());
     }
 
-    void setHumanMove(int move, char marker) throws Exception {
+    private void setHumanMove(int move, char marker) throws Exception {
         board.setCell(marker, move);
     }
 
-    int convertCellToInt(String cellID) {
+    private int convertCellToInt(String cellID) {
         return cellToMoveMap.get(cellID);
     }
 

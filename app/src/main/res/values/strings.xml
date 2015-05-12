@@ -17,4 +17,7 @@
     <string name="ties">Ties:  </string>
     <string name="computer">Computer:  </string>
     <string name="humanPlayer">Human:  </string>
+    <string name="hvc">Human Vs. Computer</string>
+    <string name="hvh">Human Vs. Human</string>
+    <string name="exit">Exit Game</string>
 </resources>

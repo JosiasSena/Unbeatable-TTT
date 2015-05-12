@@ -1,11 +1,13 @@
-package handy.tictactoe;
+package handy.tictactoe.utils;
 
 import java.util.ArrayList;
+
+import handy.tictactoe.objects.Board;
 
 public class GameRules {
     private final Board board;
 
-    GameRules(Board board) {
+    public GameRules(Board board) {
         this.board = board;
     }
 
