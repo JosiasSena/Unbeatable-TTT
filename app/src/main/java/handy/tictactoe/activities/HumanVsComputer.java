@@ -1,4 +1,4 @@
-package handy.tictactoe;
+package handy.tictactoe.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,7 +17,30 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class HumanVsComputerPlayer extends ActionBarActivity {
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import handy.tictactoe.objects.Board;
+import handy.tictactoe.objects.ComputerPlayer;
+import handy.tictactoe.utils.GameBoard;
+import handy.tictactoe.utils.GameRules;
+import handy.tictactoe.R;
+
+public class HumanVsComputer extends ActionBarActivity {
+    @InjectView(R.id.tiesCount)
+    TextView mTieCount;
+
+    @InjectView(R.id.computerCount)
+    TextView computerCount;
+
+    @InjectView(R.id.humanCount)
+    TextView humanCount;
+
+    @InjectView(R.id.human)
+    TextView human;
+
+    @InjectView(R.id.computer)
+    TextView computer;
+
     private AlertDialog.Builder mDialog;
     private Board board;
     private GameRules gameRules;
@@ -25,15 +48,6 @@ public class HumanVsComputerPlayer extends ActionBarActivity {
     private ArrayList<View> touchables;
     private static final HashMap<String, Integer> cellToMoveMap;
 
-    // Various textviews to display
-    private TextView human;
-    private TextView humanCount;
-    private TextView mTieCount;
-    private TextView computer;
-    private TextView computerCount;
-
-    // Counters for the wins and ties
-    private int humanCounter = 0;
     private int mTieCounter = 0;
     private int computerCounter = 0;
 
@@ -41,6 +55,7 @@ public class HumanVsComputerPlayer extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tic_tac_toe);
+        ButterKnife.inject(this);
         setUpActionBar();
 
         board = new GameBoard();
@@ -59,14 +74,8 @@ public class HumanVsComputerPlayer extends ActionBarActivity {
     }
 
     private void init() {
-        // setup the textviews
-        humanCount = (TextView) findViewById(R.id.humanCount);
-        human = (TextView) findViewById(R.id.human);
-        mTieCount = (TextView) findViewById(R.id.tiesCount);
-        computerCount = (TextView) findViewById(R.id.conputerCount);
-        computer = (TextView) findViewById(R.id.computer);
-
         // set the initial counter display values
+        int humanCounter = 0;
         humanCount.setText(Integer.toString(humanCounter));
         mTieCount.setText(Integer.toString(mTieCounter));
         computerCount.setText(Integer.toString(computerCounter));
@@ -134,7 +143,7 @@ public class HumanVsComputerPlayer extends ActionBarActivity {
      *
      * @param state
      */
-    void setButtonStatus(boolean state) {
+    private void setButtonStatus(boolean state) {
         for (View touchable : touchables) {
             if (touchable instanceof Button) {
                 touchable.setEnabled(state);
@@ -171,7 +180,7 @@ public class HumanVsComputerPlayer extends ActionBarActivity {
 
     }
 
-    void mapCells(char[] grid) {
+    private void mapCells(char[] grid) {
         for (int i = 0; i < grid.length; i++) {
             if (grid[i] == 'O') {
                 String buttonID = "c" + i;
@@ -182,15 +191,15 @@ public class HumanVsComputerPlayer extends ActionBarActivity {
         }
     }
 
-    int convertCellToInt(String cellID) {
+    private int convertCellToInt(String cellID) {
         return cellToMoveMap.get(cellID);
     }
 
-    void setHumanMove(int move) throws Exception {
+    private void setHumanMove(int move) throws Exception {
         board.setCell('X', move);
     }
 
-    void getComputerMove() {
+    private void getComputerMove() {
         new ComputerMoveTask().execute();
     }
 
@@ -225,7 +234,7 @@ public class HumanVsComputerPlayer extends ActionBarActivity {
         mDialog = new AlertDialog.Builder(this);
         mDialog.setPositiveButton("New Game", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                Intent intent = new Intent(getApplicationContext(), HumanVsComputerPlayer.class);
+                Intent intent = new Intent(getApplicationContext(), HumanVsComputer.class);
                 intent.putExtra("computerCounter", computerCounter);
                 intent.putExtra("tieCounter", mTieCounter);
                 startActivity(intent);

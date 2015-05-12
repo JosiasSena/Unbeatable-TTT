@@ -1,7 +1,9 @@
-package handy.tictactoe;
+package handy.tictactoe.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import handy.tictactoe.objects.Board;
 
 public class GameBoard implements Board {
     private final int size = 9;

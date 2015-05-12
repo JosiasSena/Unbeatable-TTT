@@ -1,4 +1,6 @@
-package handy.tictactoe;
+package handy.tictactoe.objects;
+
+import handy.tictactoe.utils.GameRules;
 
 public class ComputerPlayer {
     private final Board board;
